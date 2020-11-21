@@ -1,0 +1,71 @@
+<div class="container " style="position: relative; height: 90%; max-width: 100%;" >
+    <form [formGroup]="registerForm"  (ngSubmit)="registerUser()" >
+    <div class="form-group">
+       <label for="name">Name:</label>
+       <input id="name" type="name" class="form-control" formControlName="name" >
+       <div *ngIf="this.api.isValidInput('name',registerForm)"
+          class="alert alert-danger">
+          <div *ngIf="registerForm.controls['name'].errors.required">
+             Name is required.
+          </div>
+          <div *ngIf="registerForm.controls['name'].errors.pattern">
+             Name must  not contains numbers or special chars
+          </div>
+       </div>
+    </div>
+    <div class="form-group">
+       <label for="email">Email:</label>
+       <input type="email" class="form-control" formControlName="email">
+       <div *ngIf="this.api.isValidInput('email',registerForm)"
+          class="alert alert-danger">
+          <div *ngIf="registerForm.controls['email'].errors.required">
+             Email is required.
+          </div>
+          <div *ngIf="registerForm.controls['email'].errors.pattern">
+             Must be a valid email format.
+          </div>
+       </div>
+    </div>
+    <div class="form-group">
+       <label for="pwd">Password:</label>
+       <input type="password" class="form-control" formControlName="password">
+       <div *ngIf="this.api.isValidInput('password',registerForm)"
+          class="alert alert-danger">
+          <div *ngIf="registerForm.controls['password'].errors.required">
+             Password is required.
+          </div>
+          <div *ngIf="registerForm.controls['password'].errors.minlength">
+             Password must contains more than 6 chars
+          </div>
+       </div>
+    </div>
+    <div class="form-group">
+       <label for="areaOFexpertise">Area of expertise/Interests:</label>
+       <input type="areaOFexpertise" class="form-control" formControlName="areaOFexpertise">
+       <div *ngIf="this.api.isValidInput('areaOFexpertise',registerForm)"
+          class="alert alert-danger">
+          <div *ngIf="registerForm.controls['areaOFexpertise'].errors.required">
+             this fiel  is required.
+          </div>
+          <div *ngIf="registerForm.controls['areaOFexpertise'].errors.pattern">
+             must  not contains numbers or special chars
+          </div>
+       </div>
+    </div>
+    <div class="form-group">
+       <label for="avatar">Avatar</label>
+       <input type="avatar" class="form-control" formControlName="avatar">
+    </div>
+    <input  [disabled]="!registerForm.valid" type="submit" value="Submit" >
+
+
+    </form>
+
+
+    <div  *ngIf="isSubmitted">
+        <span >{{isRegisterd}}</span>
+      
+      
+    </div>
+
+ </div>

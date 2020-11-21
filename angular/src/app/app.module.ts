@@ -12,19 +12,27 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-import { CardComponent } from './card/card.component';
+import { CardComponent } from './searchbar/card/card.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import{HttpClientModule} from '@angular/common/http';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchbarComponent,
-    CardComponent
+    CardComponent,
+
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatCardModule,
     BsDropdownModule,
     TooltipModule,
-    ModalModule
+    ModalModule,
+    HttpClientModule,
+    ReactiveFormsModule
 
     
   ],

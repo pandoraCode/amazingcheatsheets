@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~9.1.7",
     "@angular/platform-browser-dynamic": "~9.1.7",
     "@angular/router": "~9.1.7",
+    "@xtream/ngx-validation-errors": "^2.1.0",
     "bootstrap": "^5.0.0-alpha2",
     "jquery": "^3.5.1",
     "ngx-bootstrap": "^6.1.0",

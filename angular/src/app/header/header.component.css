@@ -1,15 +1,17 @@
-.logo{
 
-    margin-left: 5px;
-
-    }
-    .bg-light {
-        background-color: #ffffff!important;
-    }
+  .main-container{
+    background-image: url("../../assets/img/background.png");
 
 
-nav{
-    -webkit-box-shadow: 0 3px 5px rgba(217, 30, 238, 0.3);
+/* Add the blur effect */
 
-    box-shadow: 0 3px 5px rgba(217, 30, 238, 0.3);
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+box-shadow:inset 0 0 0 2000px rgba(255, 255, 150);
+
 }
