@@ -1,28 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
+import{HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { SearchbarComponent } from './searchbar/searchbar.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
-import { CardComponent } from './searchbar/card/card.component';
 
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { HeaderComponent } from './_core/components/header/header.component';
+import { SearchbarComponent } from './_core/components/searchbar/searchbar.component';
+import { RegisterComponent } from './_core/components/register/register.component';
+import { LoginComponent } from './_core/components/login/login.component';
+import { CardComponent } from './_shared/components/card/card.component';
 
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import{HttpClientModule} from '@angular/common/http';
 
-import { ReactiveFormsModule } from '@angular/forms';
+
+
+
 
 @NgModule({
   declarations: [
@@ -38,15 +33,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatCardModule,
-    BsDropdownModule,
-    TooltipModule,
-    ModalModule,
     HttpClientModule,
     ReactiveFormsModule
 

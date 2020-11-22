@@ -1,13 +1,14 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
-export class WebClientService {
+export class HttpService {
+
   readonly ROOT_API_URL;
 
 
@@ -43,21 +44,5 @@ export class WebClientService {
     return this.http.patch(`${this.ROOT_API_URL}/${uri}`, data);
 
   }
-
-  isValidInput(fieldName,form: FormGroup): boolean {
-		return form.controls[fieldName].invalid &&
-			(form.controls[fieldName].dirty || form.controls[fieldName].touched);
-  }
-  
-  logout() {
-    localStorage.removeItem('access_token');
-    this.router.navigateByUrl('/');
-  }
-
-  public get loggedIn(): boolean{
-    return localStorage.getItem('access_token') !==  null;
-    
-  }
-
 
 }

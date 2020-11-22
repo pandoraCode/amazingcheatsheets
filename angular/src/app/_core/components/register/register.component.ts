@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {WebClientService} from '../web-client.service';
+import {AuthService} from '../../services/auth/auth.service';
+import {isValidInput} from '../../../_shared/utility/utility.functions';
 
 
 @Component({
@@ -15,10 +16,13 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   
-  isRegisterd;
-  isSubmitted = false;
 
-	constructor(public api: WebClientService) {}
+
+   
+
+	constructor(private auth: AuthService) {
+		
+	}
 
 	ngOnInit(): void {
 
@@ -32,29 +36,19 @@ export class RegisterComponent implements OnInit {
 			avatar: new FormControl(''),
 		});
 
+		
+
 	}
 
-  
+	get isValidInput(){	return isValidInput;}
+	get registerRes(){ return this.auth.RequestResponse};
 
 
-	registerUser() {
-
-		if (this.registerForm.valid) {
-			this.isSubmitted = true;
-			this.api.post("api/user/register", this.registerForm.value).subscribe(
-
-				(resp) => {
-					this.isRegisterd = "registered with success";
-
-				},
-				(error) => {
-					this.isRegisterd = error.error;
-				}
-
-			);
+	onSubmit(){
+		if (this.registerForm.valid){
+			this.auth.registerUser(this.registerForm);
 		}
 
-		this.registerForm.reset();
-
 	}
+
 }

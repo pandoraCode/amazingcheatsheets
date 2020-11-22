@@ -3,8 +3,7 @@ import { NgModel } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {LoginComponent}  from '../login/login.component';
-import { WebClientService } from '../web-client.service';
-
+import {AuthService} from '../../services/auth/auth.service';
 
 
 @Component({
@@ -17,11 +16,11 @@ import { WebClientService } from '../web-client.service';
 export class HeaderComponent implements OnInit {
   
 
-  constructor(public api: WebClientService) { }
+  constructor(private auth: AuthService) { }
 
-  loggedin = this.api.loggedIn;
+  loggedin = this.auth.loggedIn;
 
-  
+  get logout(){return this.auth.logout};
 
   ngOnInit(): void {
     console.log(this.loggedin);

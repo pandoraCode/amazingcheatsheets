@@ -1,9 +1,9 @@
 <div class="container " style="position: relative; height: 90%; max-width: 100%;" >
-    <form [formGroup]="registerForm"  (ngSubmit)="registerUser()" >
+    <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()" >
     <div class="form-group">
        <label for="name">Name:</label>
        <input id="name" type="name" class="form-control" formControlName="name" >
-       <div *ngIf="this.api.isValidInput('name',registerForm)"
+       <div *ngIf="this.isValidInput('name',registerForm)"
           class="alert alert-danger">
           <div *ngIf="registerForm.controls['name'].errors.required">
              Name is required.
@@ -16,7 +16,7 @@
     <div class="form-group">
        <label for="email">Email:</label>
        <input type="email" class="form-control" formControlName="email">
-       <div *ngIf="this.api.isValidInput('email',registerForm)"
+       <div *ngIf="isValidInput('email',registerForm)"
           class="alert alert-danger">
           <div *ngIf="registerForm.controls['email'].errors.required">
              Email is required.
@@ -29,7 +29,7 @@
     <div class="form-group">
        <label for="pwd">Password:</label>
        <input type="password" class="form-control" formControlName="password">
-       <div *ngIf="this.api.isValidInput('password',registerForm)"
+       <div *ngIf="isValidInput('password',registerForm)"
           class="alert alert-danger">
           <div *ngIf="registerForm.controls['password'].errors.required">
              Password is required.
@@ -42,7 +42,7 @@
     <div class="form-group">
        <label for="areaOFexpertise">Area of expertise/Interests:</label>
        <input type="areaOFexpertise" class="form-control" formControlName="areaOFexpertise">
-       <div *ngIf="this.api.isValidInput('areaOFexpertise',registerForm)"
+       <div *ngIf="isValidInput('areaOFexpertise',registerForm)"
           class="alert alert-danger">
           <div *ngIf="registerForm.controls['areaOFexpertise'].errors.required">
              this fiel  is required.
@@ -62,8 +62,8 @@
     </form>
 
 
-    <div  *ngIf="isSubmitted">
-        <span >{{isRegisterd}}</span>
+    <div  >
+        <span >{{registerRes}} </span>
       
       
     </div>
