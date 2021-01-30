@@ -6,20 +6,20 @@
         <button>filter</button>
      </div>
   </div>
-  <div class="row d-flex justify-content-center" style="background-color: yellow; position: relative; top: 30%;align-items: center;width: dfsd;">
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
-     <app-card style="width: auto;"></app-card>
+  <div class="row d-flex justify-content-center" style="background-color: yellow; position: relative; top: 30%;align-items: center;width: dfsd;" >
+
+
+
+   <div class="card" style="width: 15rem; border-radius: 32px; margin: 1%; " *ngFor="let sheet of Sheets">
+   
+      <app-card style="width: auto;" [title]= sheet.title [desc]=sheet.desc [tags]=sheet.tags [likes]=sheet.likes [file]=sheet.path ></app-card>
+   </div>
+
+
+
+     
+
+
+
   </div>
 </div>

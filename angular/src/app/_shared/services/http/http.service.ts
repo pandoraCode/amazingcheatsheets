@@ -30,11 +30,9 @@ export class HttpService {
 
   post(uri:string, data: any): Observable<any>{
     
-    let options = {
-      responseType: 'text' as const,
-    };
 
-    return this.http.post(`${this.ROOT_API_URL}/${uri}`, data,options).pipe(catchError(this.handleError));
+
+    return this.http.post(`${this.ROOT_API_URL}/${uri}`, data).pipe(catchError(this.handleError));
             
 
   }

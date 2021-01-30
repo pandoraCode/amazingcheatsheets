@@ -34,7 +34,7 @@ const sheet_validation = data =>{
         title: joi.string().min(3).required(),
         description: joi.string().min(3).required(),
         tags: joi.string().min(3).required(),
-        link: joi.string().min(3).required(),
+        path: joi.string().min(3).required(),
         
     });
 
@@ -47,4 +47,4 @@ const sheet_validation = data =>{
 
 module.exports.login = login_validation;
 module.exports.register = register_validation;
-module.exports.uploadSheet = sheet_validation;
+module.exports.uploadedSheet = sheet_validation;

@@ -13,6 +13,7 @@ import { SearchbarComponent } from './_core/components/searchbar/searchbar.compo
 import { RegisterComponent } from './_core/components/register/register.component';
 import { LoginComponent } from './_core/components/login/login.component';
 import { CardComponent } from './_shared/components/card/card.component';
+import { UploadSheetComponent } from './_core/components/upload-sheet/upload-sheet.component';
 
 
 
@@ -27,7 +28,8 @@ import { CardComponent } from './_shared/components/card/card.component';
     CardComponent,
 
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UploadSheetComponent
   ],
   imports: [
     BrowserModule,

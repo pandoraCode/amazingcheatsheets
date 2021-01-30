@@ -54,23 +54,25 @@ router.post('/login',async (req,res)=>{
    
                //check if the user is registerd
    
-               const userExist = await User.findOne({email:req.body.email});
+               const user = await User.findOne({email:req.body.email});
+                //check if password is correct
+                const validPass = await bcrypt.compare(req.body.password,user.password);
    
-               if (!userExist) return res.status(400).send("Email doesn't exists, create an account");
+               if (!user || !validPass) return res.status(400).send("Invalid login data");
    
               
    
-               //check if password is correct
-                const validPass = await bcrypt.compare(req.body.password,userExist.password);
-                if(!validPass) return res.status(400).send("INvalid password");
-   
                 //login token
-                const token = jwt.sign({_id:userExist.id}, process.env.TOKEN_SECRET);
+                const token = jwt.sign({_id:user.id}, process.env.TOKEN_SECRET);
    
-                res.header('auth-token',token).send(token);
+                res.header('auth-token',token);
+                
+
+                //TODO: return user without password
+                res.send({user,token});
    
 
-    }catch {
+    }catch (err){
         res.status(400).send(err);
       }
     

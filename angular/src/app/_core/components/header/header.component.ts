@@ -4,6 +4,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {LoginComponent}  from '../login/login.component';
 import {AuthService} from '../../services/auth/auth.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,14 +18,23 @@ import {AuthService} from '../../services/auth/auth.service';
 export class HeaderComponent implements OnInit {
   
 
-  constructor(private auth: AuthService) { }
+  loggedin ;
+ 
+  
+  constructor(private auth: AuthService, private router: Router) {
+    this.auth.currentUser.subscribe(x => this.loggedin = x);
+   }
 
-  loggedin = this.auth.loggedIn;
 
-  get logout(){return this.auth.logout};
+   logout(){
+  
+    this.router.navigate(['/login']);
+    this.auth.logout();
+    this.loggedin = null;
+  }
 
   ngOnInit(): void {
-    console.log(this.loggedin);
+
   }
 
 }

@@ -6,7 +6,9 @@ const sheetSchema = new mongoose.Schema({
         publisher_id: {
         type: String,
         required: true,
+        max : 255,
         min:6
+
                 },
         title: {
             type: String,
@@ -27,10 +29,9 @@ const sheetSchema = new mongoose.Schema({
         likes: {
             type: Number,
             required: false,
-            max : 255,
-            min:6
+       
                     },
-        link: {
+        path: {
             type: String,
             required: true,
             min:6

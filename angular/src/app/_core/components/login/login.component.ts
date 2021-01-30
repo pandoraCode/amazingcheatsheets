@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
 
   get isValidInput(){	return isValidInput;}
   get loginRes(){ return this.auth.RequestResponse};
+  
 
   onSubmit(){
 
